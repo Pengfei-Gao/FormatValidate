@@ -7,7 +7,7 @@ public class BeInteger implements FormatValidateRuleInterface {
 
     public void Validate(String key, String value, String args[]) throws FormatValidateException{
         Boolean ret = true;
-        for(int i=value.length();--i>=0;){
+        for(int i=value.trim().length();--i>=0;){
             int chr=value.charAt(i);
             if(chr<48 || chr>57){
                 ret = false;

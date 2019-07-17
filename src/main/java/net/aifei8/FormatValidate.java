@@ -11,22 +11,22 @@ public class FormatValidate {
     private Map<String, Class<?>> rules = new HashMap<String, Class<?>>();
 
 
-    public FormatValidate addRule(String ruleName, Class<?> rule){
+    public FormatValidate registerRule(String ruleName, Class<?> rule){
         this.rules.put(ruleName, rule);
         return this;
     }
 
     public FormatValidate(){
-        this.addRule("int", net.aifei8.rules.BeInteger.class);
-        this.addRule("range", net.aifei8.rules.Range.class);
-        this.addRule("max", net.aifei8.rules.Max.class);
-        this.addRule("min", net.aifei8.rules.Min.class);
+        this.registerRule("int", net.aifei8.rules.BeInteger.class);
+        this.registerRule("range", net.aifei8.rules.Range.class);
+        this.registerRule("max", net.aifei8.rules.Max.class);
+        this.registerRule("min", net.aifei8.rules.Min.class);
     }
 
 
     public void validate(Map<String, String> input, Map<String, String> rules) throws Exception {
 
-        String key = null, value = null, ruleName = null;
+        String ruleName = null;
         String[] ruleArr = null, ruleDesc = null ,ruleArgs = null;
         FormatValidateRuleInterface checker = null;
         Class obj = null;
@@ -48,7 +48,7 @@ public class FormatValidate {
                     continue;
                 }
 
-                ruleName = ruleDesc[0];
+                ruleName = ruleDesc[0].trim();
                 ruleArgs = StringUtils.splitString(ruleDesc[ruleDesc.length - 1], ":");
 
                 //反射，获取校验组件实例
@@ -88,6 +88,5 @@ public class FormatValidate {
         }catch (Exception e){
             System.out.println(">>>>>>>>>>>" + e.getMessage());
         }
-
     }
 }

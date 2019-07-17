@@ -10,8 +10,8 @@ public class Range implements FormatValidateRuleInterface {
             return;
         }
         int v = Integer.parseInt(value);
-        int min = Integer.parseInt(args[0]);
-        int max = Integer.parseInt(args[1]);
+        int min = Integer.parseInt(args[0].trim());
+        int max = Integer.parseInt(args[1].trim());
         if(!(v >= min && v <= max)){
             throw new FormatValidateException(String.format("parameter %s must more than %s and less than %s",
                     key, args[0], args[1]), 1);
