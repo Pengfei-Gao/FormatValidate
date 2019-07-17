@@ -24,6 +24,19 @@ public class FormatValidate {
     }
 
 
+    private volatile static FormatValidate validater;
+
+    public static FormatValidate getInstance() {
+        if (validater == null) {
+            synchronized (FormatValidate.class) {
+                if (validater == null) {
+                    validater = new FormatValidate();
+                }
+            }
+        }
+        return validater;
+    }
+
     public void validate(Map<String, String> input, Map<String, String> rules) throws Exception {
 
         String ruleName = null;
