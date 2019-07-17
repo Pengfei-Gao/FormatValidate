@@ -21,6 +21,8 @@ public class FormatValidate {
         this.registerRule("range", net.aifei8.rules.Range.class);
         this.registerRule("max", net.aifei8.rules.Max.class);
         this.registerRule("min", net.aifei8.rules.Min.class);
+        this.registerRule("phone", net.aifei8.rules.Phone.class);
+        this.registerRule("email", net.aifei8.rules.Email.class);
     }
 
 
@@ -84,13 +86,17 @@ public class FormatValidate {
             {
                 put("a", "1");
                 put("c", "1");
+                put("d", "13401185543");
+                put("e", "test@baidu.com");
             }
         };
 
         Map<String, String> rules = new HashMap<String, String>(){
             {
                 put("a", "int,range|1:4");
-                put("c", "int,min|0,max|2");
+                put("c", "int");
+                put("d", "phone|zh_cn");
+                put("e", "email|gmail.com:baidu.com");
             }
         };
 

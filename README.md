@@ -6,13 +6,15 @@
 
 多个规则间可使用`,`隔开，规则和参数之间使用`|`间隔，多个参数使用`:`隔开。
 
-| 规则  | 说明                     | 使用                                                              |
-| --    | --                       | --                                                                |
-| int   | 必须为整数               | `int`                                                             |
-| range | 必须在某个区间内         | `range\|1:6`, 表示传入的参数必须 `>= 1` 且 `<= 6`                 |
-| max   | 指定参数的最大值         | `max\|1`,表示传入的参数必须`<= 1`                                 |
-| min   | 指定参数的最小值         | `min\|1`,表示传入的参数必须`>= 1`                                 |
-| in    | 指定参数必须在某个集合内 | `in\|DOG:CAT:FISH`, 表示传入的参数必须在集合 { DOG, CAT,FISH } 内 |
+| 规则  | 说明                                               | 使用                                                                                                           |
+| --    | --                                                 | --                                                                                                             |
+| int   | 必须为整数                                         | `int`                                                                                                          |
+| range | 必须在某个区间内                                   | `range\|1:6`, 表示传入的参数必须 `>= 1` 且 `<= 6`                                                              |
+| max   | 指定参数的最大值                                   | `max\|1`,表示传入的参数必须`<= 1`                                                                              |
+| min   | 指定参数的最小值                                   | `min\|1`,表示传入的参数必须`>= 1`                                                                              |
+| in    | 指定参数必须在某个集合内                           | `in\|DOG:CAT:FISH`, 表示传入的参数必须在集合 { DOG, CAT,FISH } 内                                              |
+| phone | 指定参数必须为手机号，目前可选为：`zh_cn`、`zh_hk` | `phone\|zh_cn`,表示必须为国内手机号；`phone\|zh_cn:zh_hk`, 表示参数可为过呢诶手机号，也可为国外手机号          |
+| email | 指定参数必须为邮箱，可传入域名。                   | `email`,表示为合法邮箱地址即可；`email\|gmail.com:qq.com:outlook.com`,表示参数只可为gmail、qq、outlook系的邮箱 |
 
 ### 三、使用
 
@@ -43,6 +45,8 @@ public class FormatCheck {
                 put("c", "int,min|0,max|2");
                 put("c", "int,min|0,max|2");
                 put("d", "int,min|0,max|2");
+                put("d", "phone|zh_cn");
+                put("e", "email|gmail.com:baidu.com");
             }
         };
 
