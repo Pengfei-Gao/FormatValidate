@@ -74,8 +74,6 @@ public class FormatValidate {
 
         }
 
-
-
     }
 
     public static void main(String[] args) {
