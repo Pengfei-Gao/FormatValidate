@@ -87,7 +87,7 @@ public class FormatValidate {
                 put("a", "1");
                 put("c", "1");
                 put("d", "13401185543");
-                put("e", "test@baidu.com");
+                put("e", "test@baidu.coxm");
             }
         };
 
@@ -103,7 +103,7 @@ public class FormatValidate {
         try{
             checker.validate(input, rules);
         }catch (Exception e){
-            System.out.println(">>>>>>>>>>>" + e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
